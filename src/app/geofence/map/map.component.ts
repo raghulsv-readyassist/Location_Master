@@ -28,12 +28,16 @@ public coordsval;
   }
   
   center: any = {
-    lat: 33.5362475,
-    lng: -111.9267386
+    lat: 11.203388,
+    lng: 77.820029
   };
+  map: google.maps.Map
 
-  onMapReady(map) {
+  onMapReady(map: google.maps.Map) {
+    this.map = map;
     this.initDrawingManager(map);
+    
+    
   }
 
   initDrawingManager(map: any) {
@@ -64,7 +68,7 @@ public coordsval;
 
       for (let i = 0; i < len; i++) {
         const vertex = polygon.getPath().getAt(i);
-        const vertexLatLng = {lat: vertex.lat(), lng: vertex.lng()};
+        const vertexLatLng = [vertex.lat(),vertex.lng()];
         polyArrayLatLng.push(vertexLatLng);
       }
       // the last point of polygon should be always the same as the first point (math rule)
@@ -106,6 +110,21 @@ public coordsval;
   public updatelatlong(coordsval){
     this.service.changeCoords(coordsval);
     console.log(coordsval);
+  }
+
+  drawPolygon() {
+    const paths = [
+        { lat: 12.3175489124641, lng: 78.48798591874993 },
+        { lat: 8.210490392434776, lng: 77.38935310624993 },
+        { lat: 10.59482777210473, lng: 79.58661873124993 }
+      ]
+    const polygon = new google.maps.Polygon({
+      paths: paths,
+      editable: true,
+      draggable: true,
+    })
+
+    polygon.setMap(this.map)
   }
   
   

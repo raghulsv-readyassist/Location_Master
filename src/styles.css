@@ -24,3 +24,5 @@ div.validation-error{
     font-size: 80%;
     color: #dc3545;
 }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

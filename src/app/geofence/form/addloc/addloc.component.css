@@ -1,0 +1,32 @@
+.container{
+    height: 500px;
+    width: 100%;
+    margin-top: 80px;
+   
+
+    
+      
+    
+}
+.searchdiv{
+    height: 30px;
+    color: white;
+    
+    background-color: #f9cb33;
+}
+h3{
+    margin-left: 20px;
+    font-size: 20px;
+}
+.main{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    border-right: 1px solid black;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    font-size: 14px;
+    opacity: 0.3; /* Firefox */
+  }
+  

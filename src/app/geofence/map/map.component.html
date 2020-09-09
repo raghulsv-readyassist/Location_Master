@@ -1,6 +1,7 @@
-<agm-map [latitude]="center.lat" [longitude]="center.lng" (mapReady)="onMapReady($event)" >
+<agm-map [zoom]="8" [latitude]="center.lat" [longitude]="center.lng" (mapReady)="onMapReady($event)" >
   
 </agm-map>
+<button (click)="drawPolygon()">draw</button>
 
 
 
