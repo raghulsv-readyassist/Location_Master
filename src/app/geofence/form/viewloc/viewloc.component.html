@@ -1,7 +1,7 @@
 <table class="table table-hover">
-    <tr *ngFor="let emp of service.list">
-      <td (click)="populateForm(emp)">{{emp.name}}</td>
-      <td (click)="populateForm(emp)">{{emp.shortcode}}</td>
-      <td><button  class="btn btn-sm btn-outline-danger">X</button></td>
-    </tr>
-  </table>
+  <tr *ngFor="let map of service.list">
+    <td (click)="populatemap(map.id)">{{map.name}}</td>
+    <td (click)="populatemap(map.id)">{{map.shortcode}}</td>
+    <td><button (click)="onDelete(map.id)" class="btn btn-sm btn-outline-danger">X</button></td>
+  </tr>
+</table>

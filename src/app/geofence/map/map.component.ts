@@ -113,11 +113,20 @@ public coordsval;
   }
 
   drawPolygon() {
-    const paths = [
-        { lat: 12.3175489124641, lng: 78.48798591874993 },
-        { lat: 8.210490392434776, lng: 77.38935310624993 },
-        { lat: 10.59482777210473, lng: 79.58661873124993 }
-      ]
+    const coords = [
+         [[11.429615254304155, 77.7939364707031],[10.707228597459336, 77.4258944785156],[10.691035591267335, 78.3981845175781],[11.429615254304155, 77.7939364707031]]
+       ];
+   
+    
+    var paths = [];
+    for (var i = 0; i < coords.length; i++) {
+        var path = [];
+        for (var j = 0; j < coords[i].length; j++) {
+            path.push({ lat:coords[i][j][0], lng:coords[i][j][1]});
+        }
+        paths.push(path);
+    }
+    console.dir(paths);
     const polygon = new google.maps.Polygon({
       paths: paths,
       editable: true,

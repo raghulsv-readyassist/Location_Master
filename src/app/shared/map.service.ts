@@ -20,6 +20,8 @@ export class MapService {
   public polycoords = new BehaviorSubject<any>([]);
   currentcoords = this.polycoords.asObservable();
   formdata:Map;
+  list : Map[];
+  loccords: Map[];
   readonly rootURL ="http://[::1]:3000/locations/"
   
 
@@ -87,12 +89,7 @@ export class MapService {
    return this.http.post(this.rootURL,formdata,request);
     
   }
-  getmap(){
-   
-    
-   return this.http.get(this.rootURL,request);
-    
-  }
+ 
   
   
 
@@ -102,9 +99,25 @@ export class MapService {
     this.formdata.geofence= coordsval
     
   }
-  refreshList(){}
-  deleteloc(id:number){}
   
+  refreshList(){
+    this.http.get(this.rootURL)
+    .toPromise().then(res => this.list = res as Map[]);
+    
+  }
+  deleteloc(id : number){
+    return this.http.delete(this.rootURL+id);
+   }
+   getmap(id:number){
+     console.log(id)
+   this.http.get(this.rootURL+id)
+    .toPromise().then(res => this.loccords = res as Map[]);
+   
+    
+
+
+     
+   }
 
   
 }
